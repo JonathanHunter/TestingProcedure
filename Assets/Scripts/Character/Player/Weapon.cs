@@ -8,6 +8,7 @@
         public Transform barrel;
         public Bullet bullet;
         public int clip;
+        public float shotDelay;
 
         protected override void Init()
         {
@@ -22,9 +23,10 @@
 
         protected override void Run()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if ((_delay -= Time.deltaTime) < 0 && Input.GetKey(KeyCode.Space))
             {
-                if (!_bullets[_currentBullet].isActiveAndEnabled)
+                _delay = shotDelay;
+                if (!_bullets[_currentBullet].gameObject.activeSelf)
                 {
                     Bullet b = _bullets[_currentBullet];
                     b.transform.position = barrel.position;
@@ -41,5 +43,6 @@
 
         private Bullet[] _bullets;
         private int _currentBullet;
+        private float _delay;
     }
 }

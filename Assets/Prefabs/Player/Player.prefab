@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1081065624260269076}
   - component: {fileID: 1081065624260269080}
   - component: {fileID: 1081065624260269075}
+  - component: {fileID: 693064999}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -162,7 +163,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 1081065625365581059}
   bullet: {fileID: 5645342168574015699, guid: b9fb97c0d63f5684ba0a16c4b3c0b8e1, type: 3}
-  clip: 4
+  clip: 15
+  shotDelay: 0.2
+--- !u!114 &693064999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081065624260269081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc239bc66c7e610418bb6534b9045457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  health: 0
 --- !u!1 &1081065625365581060
 GameObject:
   m_ObjectHideFlags: 0

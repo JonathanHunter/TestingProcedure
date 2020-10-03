@@ -9,6 +9,7 @@ namespace Assets.Scripts.Character.Enemies
 
         protected override void Init()
         {
+            speed = Random.Range(speed, speed * 2);
         }
 
         protected override void Run()

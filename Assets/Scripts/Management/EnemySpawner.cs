@@ -1,12 +1,15 @@
 ﻿namespace Assets.Scripts.Management
 {
     using System.Collections.Generic;
+    using System.Linq;
+    using TMPro;
     using Unity.Mathematics;
     using UnityEngine;
     using Random = UnityEngine.Random;
 
     public class EnemySpawner : MonoBehaviour
     {
+        public GameManager gameManager;
         public float initialDelay;
         public float waveDelay;
 
@@ -28,35 +31,37 @@
                 _waves = 1;
             }
 
-            _curWave = 1;
-            _waveTimer = 0;
+            _curWave = 0;
+            _waveTimer = initialDelay;
         }
 
         private void Update()
         {
             if (_curWave < _waves)
             {
-                initialDelay -= Time.deltaTime;
-                if (initialDelay <= 0)
+                if ((_waveTimer -= Time.deltaTime) <= 0)
                 {
-                    if (_waveTimer <= 0)
-                    {
-                        _waveTimer = waveDelay;
-                        IList<GameObject> spawns = SpawnWave();
-                        _curWave++;
+                    Debug.Log("spawned wave");
+                    _waveTimer = waveDelay;
+                    _spawns = SpawnWave();
+                    _curWave++;
 
-                        if (_curWave == _waves)
-                        {
+                    if (_curWave == _waves)
+                        gameManager.LastWave(_spawns);
+                }
 
-                        }
-                    }
+                if (_spawns != null && !_spawns.Any(x => x != null))
+                {
+                    Debug.Log("a");
+                    _waveTimer = 0;
                 }
             }
+
         }
 
         private IList<GameObject> SpawnWave()
         {
-            int count = Random.Range(1, _level) * 10 * _level;
+            int count = Random.Range(1, _level) * _level + 5;
             List<GameObject> spawns = new List<GameObject>(count);
             for (int i = 0; i < count; i++)
             {
@@ -81,5 +86,6 @@
         private int _waves;
         private int _curWave;
         private float _waveTimer;
+        private IList<GameObject> _spawns;
     }
 }
