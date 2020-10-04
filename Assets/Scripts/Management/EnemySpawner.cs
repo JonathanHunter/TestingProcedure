@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using TMPro;
     using Unity.Mathematics;
     using UnityEngine;
+    using UI;
     using Random = UnityEngine.Random;
 
     public class EnemySpawner : MonoBehaviour
@@ -12,6 +12,7 @@
         public GameManager gameManager;
         public float initialDelay;
         public float waveDelay;
+        public WaveNotification waveNotifier;
 
         public Transform topRight;
         public Transform bottomLeft;
@@ -41,7 +42,7 @@
             {
                 if ((_waveTimer -= Time.deltaTime) <= 0)
                 {
-                    Debug.Log("spawned wave");
+                    waveNotifier.Notify(_curWave + 1);
                     _waveTimer = waveDelay;
                     _spawns = SpawnWave();
                     _curWave++;
@@ -51,21 +52,18 @@
                 }
 
                 if (_spawns != null && !_spawns.Any(x => x != null))
-                {
-                    Debug.Log("a");
                     _waveTimer = 0;
-                }
             }
 
         }
 
         private IList<GameObject> SpawnWave()
         {
-            int count = Random.Range(1, _level) * _level + 5;
+            int count = math.max(Random.Range(1, _level) * _level, 5);
             List<GameObject> spawns = new List<GameObject>(count);
             for (int i = 0; i < count; i++)
             {
-                int type = Random.Range(0, math.min(_level, (enemies.Length - 1)));
+                int type = Random.Range(0, math.min(_level, enemies.Length));
                 spawns.Add(Spawn(enemies[type]));
             }
 

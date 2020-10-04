@@ -13,7 +13,7 @@
 
         protected override void BulletRun()
         {
-            rgbd.velocity = transform.up * speed;
+            rgbd.velocity = transform.right * speed;
         }
     }
 }

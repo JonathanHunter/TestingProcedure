@@ -21,13 +21,19 @@
             BulletRun();
 
             if ((_time += Time.deltaTime) > lifetime || _hit)
-                this.gameObject.SetActive(false);
+            {
+                if (_destroy)
+                    Destroy(this.gameObject);
+                else
+                    this.gameObject.SetActive(false);
+            }
         }
 
-        public void Reset()
+        public void Reset(bool destroy = false)
         {
             _time = 0;
             _hit = false;
+            _destroy = destroy;
             BulletReset();
         }
 
@@ -36,5 +42,6 @@
 
         private float _time;
         private bool _hit;
+        private bool _destroy;
     }
 }
