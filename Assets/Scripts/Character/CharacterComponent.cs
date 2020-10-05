@@ -8,7 +8,7 @@
         private void Start()
         {
             Init();
-            _gameState = FindObjectOfType<GameState>();
+            _gameState = GameState.GameStateInstance == null ? FindObjectOfType<GameState>() : GameState.GameStateInstance;
         }
 
         private void Update()

@@ -6,7 +6,7 @@
     {
         private void Start()
         {
-            _gameState = FindObjectOfType<GameState>();
+            _gameState = GameState.GameStateInstance == null ? FindObjectOfType<GameState>() : GameState.GameStateInstance;
         }
 
         private void Update()

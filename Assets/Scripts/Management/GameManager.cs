@@ -4,6 +4,7 @@
     using System.Linq;
     using UnityEngine;
     using UI;
+    using UnityEngine.SceneManagement;
 
     public class GameManager : MonoBehaviour
     {
@@ -42,7 +43,7 @@
             if (_end || (_playerSpawned && _player == null))
             {
                 if ((endDelay -= Time.deltaTime) < 0)
-                    Debug.Log("end");
+                    SceneManager.LoadScene("Tester");
             }
         }
 

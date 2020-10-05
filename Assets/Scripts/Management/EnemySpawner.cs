@@ -20,7 +20,7 @@
 
         private void Start()
         {
-            GameState gameState = FindObjectOfType<GameState>();
+            GameState gameState = GameState.GameStateInstance == null ? FindObjectOfType<GameState>() : GameState.GameStateInstance;
             if (gameState != null)
             {
                 _level = gameState.Level;
