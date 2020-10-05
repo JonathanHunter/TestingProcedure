@@ -936,7 +936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A programer is stuck at work late on a friday night.
+  m_Text: A programmer is stuck at work late on a friday night.
 --- !u!222 &2107443877
 CanvasRenderer:
   m_ObjectHideFlags: 0
