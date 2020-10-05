@@ -26,6 +26,9 @@
             testTotal.text = $"Test Progress: {_gameState.EnemiesCollected}/{testMax}";
             string oldText = _gameState.testText;
             int size = (_gameState.EnemiesCollected / 10) - _gameState.testsAdded;
+            if (_gameState.EnemiesCollected / 10 > 14)
+                size = 14 - _gameState.testsAdded;
+
             if (size > 0)
             {
                 _newtext = new string[size];
@@ -63,7 +66,10 @@
                     _timer = 0;
                     _state++;
                     if (_gameState.EnemiesCollected >= testMax)
+                    {
+                        testWindow.text += "DONE";
                         complaints.text = "FINALLY DONE!";
+                    }
                 }
             }
 

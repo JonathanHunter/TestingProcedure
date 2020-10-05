@@ -276,7 +276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The only thing between them and freedom is 14 tests.
+  m_Text: And so are you.
 --- !u!222 &618534368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -355,13 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Your goal:
-
-    Prevent the tests from running.
-
-
-    Stop the test assets
-    from gettting to the bottom of the screen to the collector.'
+  m_Text: The programer is free.
 --- !u!222 &1237818681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -440,17 +434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Controls:
-
-    Move: WASD
-
-    Shoot: Spacebar
-
-    Pause: ESC
-
-
-    Press
-    Enter to continue'
+  m_Text: and now, so are you.
 --- !u!222 &1241294065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -742,9 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa54591278c4f1143a69cbfb5b2407cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
-  level: Tester
-  quit: 0
+  time: 5
+  level: Main
+  quit: 1
   texts:
   - {fileID: 2107443876}
   - {fileID: 618534367}
@@ -936,7 +920,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A programer is stuck at work late on a friday night.
+  m_Text: The tests are finished.
 --- !u!222 &2107443877
 CanvasRenderer:
   m_ObjectHideFlags: 0
