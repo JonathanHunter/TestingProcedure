@@ -162,3 +162,4 @@ MonoBehaviour:
   maxHealth: 1
   health: 0
   sprites: []
+  boom: {fileID: 8120726468461060478, guid: bf1048d923e0def4a9da12692a9b6394, type: 3}

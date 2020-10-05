@@ -9,6 +9,7 @@
         public Bullet bullet;
         public int clip;
         public float shotDelay;
+        public AudioSource sfx;
 
         protected override void Init()
         {
@@ -28,6 +29,7 @@
                 _delay = shotDelay;
                 if (!_bullets[_currentBullet].gameObject.activeSelf)
                 {
+                    sfx.Play();
                     Bullet b = _bullets[_currentBullet];
                     b.transform.position = barrel.position;
                     b.transform.rotation = barrel.rotation;

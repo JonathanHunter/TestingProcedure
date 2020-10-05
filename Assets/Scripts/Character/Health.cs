@@ -8,6 +8,7 @@
         public int health;
 
         public GameObject[] sprites;
+        public GameObject boom;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -31,7 +32,10 @@
                 health--;
 
                 if (health < 1)
-                    Destroy(this.gameObject);                    
+                {
+                    Instantiate(boom);
+                    Destroy(this.gameObject);
+                }
             }
         }
 
